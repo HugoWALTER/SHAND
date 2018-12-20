@@ -1,6 +1,14 @@
 int analogPin5 = 5;     // potentiometer wiper (middle terminal) connected to analog pin 3
-                       // outside leads to ground and +5V
+int analogPin4 = 4;     // potentiometer wiper (middle terminal) connected to analog pin 3
+int analogPin3 = 3;     // potentiometer wiper (middle terminal) connected to analog pin 3
+int analogPin2 = 2;     // potentiometer wiper (middle terminal) connected to analog pin 3
+int analogPin1 = 1;     // potentiometer wiper (middle terminal) connected to analog pin 3
+                        // outside leads to ground and +5V
 int val5 = 0;           // variable to store the value read
+int val4 = 0;           // variable to store the value read
+int val3 = 0;           // variable to store the value read
+int val2 = 0;           // variable to store the value read
+int val1 = 0;           // variable to store the value read
 int time = 0;
 void setup()
 {
@@ -9,12 +17,40 @@ void setup()
 
 void loop()
 {
-  val5 = analogRead(analogPin5);     // read the input pin
-  if (val5 >= 9) {
-    Serial.println(String(1));
+  val1 = analogRead(analogPin1);
+  val2 = analogRead(analogPin2);
+  val3 = analogRead(analogPin3);
+  val4 = analogRead(analogPin4);
+  val5 = analogRead(analogPin5);
+  if (val5 >= 17) {
+    Serial.println(String(15));
   }
-  if (val5 <= 5) {
-    Serial.println(String(0));
+  if (val5 <= 8) {
+    Serial.println(String(05));
+  }
+  if (val4 >= 8) {
+    Serial.println(String(14));
+  }
+  if (val4 <= 2) {
+    Serial.println(String(04));
+  }
+  if (val3 >= 15) {
+    Serial.println(String(13));
+  }
+  if (val3 <= 3) {
+    Serial.println(String(03));
+  }
+  if (val2 >= 23) {
+    Serial.println(String(12));
+  }
+  if (val2 <= 15) {
+    Serial.println(String(02));
+  }
+  if (val1 >= 21) {
+    Serial.println(String(11));
+  }
+  if (val1 <= 14) {
+    Serial.println(String(01));
   }
   delay(100);
   time+=1;

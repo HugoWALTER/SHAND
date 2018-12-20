@@ -45,26 +45,58 @@ def task():
 	self.root.update()
 
 app = App()
-##try:
-##    arduino = serial.Serial("COM16", timeout=1)
-##except:
-##    print("Please check the port")
-##count = 0
-##down = 0
-##up = 0
-##rawdata = []
-##while count >= 0:
-##    count+=1
-##    res = str(arduino.readline())
-##    if ("0" in res):
-##        down+=1
-##        up = 0
-##    if ("1" in res):
-##        down = 0
-##        up+=1
-##    if (up >= 5):
-##        up = 0
-##        print("UP")
-##    if (down >= 5):
-##        down = 0
-##        print("DOWN")
+try:
+    arduino = serial.Serial("COM3", timeout=1)
+except:
+    print("Please check the port")
+count = 0
+down1 = 0
+down2 = 0
+down3 = 0
+down4 = 0
+down5 = 0
+rawdata = []
+while count >= 0:
+    count+=1
+    res = str(arduino.readline())
+    if ("1" in res):
+        down1+=1
+    if ("11" in res):
+        down1 = 0
+    if ("2" in res):
+        down2+=1
+    if ("12" in res):
+        down2 = 0
+    if ("3" in res):
+        down3+=1
+    if ("13" in res):
+        down3 = 0
+    if ("4" in res):
+        down4+=1
+    if ("14" in res):
+        down4 = 0
+    if ("5" in res):
+        down5+=1
+    if ("15" in res):
+        down5 = 0
+    if (down1 >= 3):
+        print("DOWN1")
+    else:
+        print("UP1")
+    if (down2 >= 3):
+        print("DOWN2")
+    else:
+        print("UP2")
+    if (down3 >= 3):
+        print("DOWN3")
+    else:
+        print("UP3")
+    if (down4 >= 3):
+        print("DOWN4")
+    else:
+        print("UP4")
+    if (down5 >= 3):
+        #rectanglef([330, 240, 360, 500])##pouce full
+        print("DOWN5")
+    else:
+        print("UP5")

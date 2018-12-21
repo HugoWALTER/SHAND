@@ -23,7 +23,7 @@ def callback():
     root.destroy()
 
 try:
-    arduino = serial.Serial("COM16", timeout=1)
+    arduino = serial.Serial("COM3", timeout=1)
 except:
     print("Please check the port")
 count = 0

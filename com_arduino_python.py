@@ -46,17 +46,21 @@ def task():
    # do something
 	self.root.update()
 
-app = App()
 try:
     arduino = serial.Serial("COM3", timeout=1)
 except:
     print("Please check the port")
 count = 0
-down1 = 0
-down2 = 0
-down3 = 0
-down4 = 0
-down5 = 0
+down1 = 3
+down2 = 3
+down3 = 3
+down4 = 3
+down5 = 3
+doigt1 = 0
+doigt2 = 0
+doigt3 = 0
+doigt4 = 0
+doigt5 = 0
 rawdata = []
 while count >= 0:
     count+=1
@@ -81,33 +85,33 @@ while count >= 0:
         down5+=1
     if ("15" in res):
         down5 = 0
-    if (down1 >= 3):
-        app.rectangler([630, 360, 660, 500])##reset auriculaire demi
-        print("DOWN1")
-    else:
-        app.rectangled([630, 360, 660, 500])##auriculaire demi
-        print("UP1")
-    if (down2 >= 3):
-        app.rectangler([560, 240, 590, 500])##reset annulaire demi
-        print("DOWN2")
-    else:
-        app.rectangled([560, 240, 590, 500])##annulaire demi
-        print("UP2")
-    if (down3 >= 3):
-        app.rectangler([480, 160, 510, 500])##reset majeur demi
-        print("DOWN3")
-    else:
-        app.rectangled([480, 160, 510, 500])##majeur demi
-        print("UP3")
-    if (down4 >= 3):
-        app.rectangler([400, 240, 430, 500])##reset index demi
-        print("DOWN4")
-    else:
-        app.rectangled([400, 240, 430, 500])##index demi
-        print("UP4")
-    if (down5 >= 3):
-        app.rectangler([330, 360, 360, 500])##reset pouce demi
-        print("DOWN5")
-    else:
-        app.rectangled([330, 360, 360, 500])##pouce demi
-        print("UP5")
+    if (down1 < 3 and doigt1 == 0):
+        print("ON Doigt 1")
+        doigt1 = 1
+    elif (down1 >= 3 and doigt1 == 1):
+        doigt1 = 0
+        print("OFF Doigt 1")
+    if (down2 < 3 and doigt2 == 0):
+        print("ON Doigt 2")
+        doigt2 = 1
+    elif (down2 >= 3 and doigt2 == 1):
+        print("OFF Doigt 2")
+        doigt2 = 0
+    if (down3 < 3 and doigt3 == 0):
+        print("ON Doigt 3")
+        doigt3 = 1
+    elif (down3 >= 3 and doigt3 == 1):
+        print("OFF Doigt 3")
+        doigt3 = 0
+    if (down4 < 3 and doigt4 == 0):
+        print("ON Doigt 4")
+        doigt4 = 1
+    elif (down4 >= 3 and doigt4 == 1):
+        print("OFF Doigt 4")
+        doigt4 = 0
+    if (down5 < 3 and doigt5 == 0):
+        print("ON Doigt 5")
+        doigt5 = 1
+    elif (down5 >= 3 and doigt5 == 1):
+        print("OFF Doigt 5")
+        doigt5 = 0

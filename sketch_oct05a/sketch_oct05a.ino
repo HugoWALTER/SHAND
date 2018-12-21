@@ -31,28 +31,28 @@ void loop()
   Serial.print(val4);
   Serial.print("-");
   Serial.println(val5);*/
-  if (val5 >= 12) {
+  if (val5 >= 18) {
     Serial.println(String(15));
   }
-  if (val5 <= 8) {
+  if (val5 <= 7) {
     Serial.println(String(05));
   }
   if (val4 >= 7) {
     Serial.println(String(14));
   }
-  if (val4 <= 5) {
+  if (val4 <= 2) {
     Serial.println(String(04));
   }
-  if (val3 >= 14) {
+  if (val3 >= 16) {
     Serial.println(String(13));
   }
-  if (val3 <= 5) {
+  if (val3 <= 8) {
     Serial.println(String(03));
   }
-  if (val2 >= 28) {
+  if (val2 >= 33) {
     Serial.println(String(12));
   }
-  if (val2 <= 13) {
+  if (val2 <= 18) {
     Serial.println(String(02));
   }
   if (val1 >= 30) {

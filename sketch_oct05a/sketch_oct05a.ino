@@ -9,7 +9,6 @@ int val4 = 0;           // variable to store the value read
 int val3 = 0;           // variable to store the value read
 int val2 = 0;           // variable to store the value read
 int val1 = 0;           // variable to store the value read
-int time = 0;
 void setup()
 {
   Serial.begin(9600);              //  setup serial
@@ -22,46 +21,46 @@ void loop()
   val3 = analogRead(analogPin3);
   val4 = analogRead(analogPin4);
   val5 = analogRead(analogPin5);/*
-  Serial.print(val1);
-  Serial.print("-");
-  Serial.print(val2);
-  Serial.print("-");
-  Serial.print(val3);
+  Serial.print(val5);
   Serial.print("-");
   Serial.print(val4);
   Serial.print("-");
-  Serial.println(val5);*/
-  if (val5 >= 18) {
-    Serial.println(String(15));
+  Serial.print(val3);
+  Serial.print("-");
+  Serial.print(val2);
+  Serial.print("-");
+  Serial.println(val1);*/
+  if (val5 >= 5) {
+    Serial.print(String(15));
   }
-  if (val5 <= 7) {
-    Serial.println(String(05));
+  if (val5 <= 4) {
+    Serial.print(String(5));
   }
-  if (val4 >= 7) {
-    Serial.println(String(14));
+  if (val4 >= 4) {
+    Serial.print(String(14));
   }
   if (val4 <= 2) {
-    Serial.println(String(04));
+    Serial.print(String(4));
   }
   if (val3 >= 16) {
-    Serial.println(String(13));
+    Serial.print(String(13));
   }
   if (val3 <= 8) {
-    Serial.println(String(03));
+    Serial.print(String(3));
   }
-  if (val2 >= 33) {
-    Serial.println(String(12));
+  if (val2 >= 7) {
+    Serial.print(String(12));
   }
-  if (val2 <= 18) {
-    Serial.println(String(02));
+  if (val2 <= 4) {
+    Serial.print(String(2));
   }
   if (val1 >= 30) {
-    Serial.println(String(11));
+    Serial.print(String(11));
   }
   if (val1 <= 9) {
-    Serial.println(String(01));
+    Serial.print(String(1));
   }
+  Serial.println();
   delay(100);
-  time+=1;
   Serial.flush();
 }

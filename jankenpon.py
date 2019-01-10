@@ -29,16 +29,10 @@ def choix(count) :
     doigt3 = 0
     doigt4 = 0
     doigt5 = 0
-    rawdata = []
-    count.after(1000, lambda: count.config(text='3'))
-    count.pack()
-    count.after(2000, lambda: count.config(text='2'))
-    count.pack()
-    count.after(3000, lambda: count.config(text='1'))
-    count.pack()
-    while cpt < 20:
+    while cpt < 30:
         cpt+=1
         res = str(arduino.readline())
+        print(res)
         if ("1" in res):
             down1+=1
         if ("11" in res):
@@ -79,7 +73,15 @@ def choix(count) :
             doigt5 = 1
         elif (down5 >= 3 and doigt5 == 1):
             doigt5 = 0
+        time.sleep(0.02)
 
+    count.after(1000, lambda: count.config(text='3'))
+    count.pack()
+    count.after(2000, lambda: count.config(text='2'))
+    count.pack()
+    count.after(3000, lambda: count.config(text='1'))
+    count.pack()
+    print(doigt1, doigt2, doigt3, doigt4, doigt5)
     count.after(4000, lambda: count.config(text=''))
     count.pack()
     BOT = randrange(1,4)
@@ -90,8 +92,9 @@ def choix(count) :
     else:
         ciseaub = 1
 
-    if doigt2 == 0 & doigt3 == 0 & doigt4 == 0 & doigt5 == 0 :
-         if BOT ==1 :
+    if doigt2 == 0 and doigt4 == 0 or doigt2 == 1 and doigt4 == 0 :
+         print("dedans")
+         if BOT == 1 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Feuille.\nLe BOT a choisi: Feuille.\nEgalité.\n'))
          elif BOT == 2 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Feuille.\nLe BOT a choisi: Pierre.\nVous gagnez.\n'))
@@ -100,7 +103,7 @@ def choix(count) :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Feuille.\nLe BOT a choisi: Ciseau.\nVous perdez.\n'))
             pointB += 1
 
-    elif doigt2 == 1 & doigt3 == 1 & doigt4 == 1 & doigt5 == 1 :
+    elif doigt2 == 1 and doigt4 == 1 :
         if BOT == 2 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Pierre.\nLe BOT a choisi: Pierre.\nEgalité.\n'))
         elif BOT ==1 :
@@ -110,7 +113,7 @@ def choix(count) :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Pierre.\nLe BOT a choisi: Ciseau.\nVous gagnez.\n'))
             pointJ += 1
 
-    elif doigt2 == 0 & doigt3 == 0 & doigt4 == 1 & doigt5 == 1 :
+    elif doigt2 == 0 and doigt4 == 1 :
         if BOT == 3 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Ciseau.\nLe BOT a choisi: Ciseau.\nEgalité.\n'))
         elif BOT == 2 :
@@ -129,7 +132,7 @@ except:
     print("Please check the port")
 pointJ,pointB=0,0
 fenetre = tk.Tk()
-texte1 = tk.Label(fenetre, text='Bienvenue au Jankenpon SHAND !\n\n\nPour jouer:\n\n1) Sélectionner le bouton GO pour lancer la partie.\n2) Réaliser pierre/feuille/ciseau avec votre gant durant le compte à rebours.\n')
+texte1 = tk.Label(fenetre, text='Bienvenue au Jankenpon SHAND !\n\n\nPour jouer:\n\n1) Sélectionner le bouton GO pour lancer la partie.\n2) Réaliser pierre/feuille/ciseau avec votre gant avant le compte à rebours.\n')
 texte1.pack()
 count = tk.Label(fenetre)
 count.pack()

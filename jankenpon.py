@@ -110,7 +110,7 @@ def choix(count) :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Pierre.\nLe BOT a choisi: Ciseau.\nVous gagnez.\n'))
             pointJ += 1
 
-    elif & doigt2 == 0 & doigt3 == 0 & doigt4 == 1 & doigt5 == 1 :
+    elif doigt2 == 0 & doigt3 == 0 & doigt4 == 1 & doigt5 == 1 :
         if BOT == 3 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Ciseau.\nLe BOT a choisi: Ciseau.\nEgalité.\n'))
         elif BOT == 2 :

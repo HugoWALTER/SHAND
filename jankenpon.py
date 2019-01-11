@@ -29,6 +29,10 @@ def choix(count) :
     doigt3 = 0
     doigt4 = 0
     doigt5 = 0
+    try:
+        arduino = serial.Serial("COM3", timeout=1)
+    except:
+        print("Please check the port")
     while cpt < 30:
         cpt+=1
         res = str(arduino.readline())
@@ -75,6 +79,8 @@ def choix(count) :
             doigt5 = 0
         time.sleep(0.02)
 
+    if arduino.isOpen() == 1:
+        arduino.close()
     count.after(1000, lambda: count.config(text='3'))
     count.pack()
     count.after(2000, lambda: count.config(text='2'))
@@ -92,7 +98,7 @@ def choix(count) :
     else:
         ciseaub = 1
 
-    if doigt2 == 0 and doigt4 == 0 or doigt2 == 1 and doigt4 == 0 :
+    if doigt2 == 0 and doigt4 == 0 or doigt2 == 0 and doigt4 == 1 :
          print("dedans")
          if BOT == 1 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Feuille.\nLe BOT a choisi: Feuille.\nEgalité.\n'))
@@ -113,7 +119,7 @@ def choix(count) :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Pierre.\nLe BOT a choisi: Ciseau.\nVous gagnez.\n'))
             pointJ += 1
 
-    elif doigt2 == 0 and doigt4 == 1 :
+    elif doigt2 == 1 and doigt4 == 0 :
         if BOT == 3 :
             chaine.after(4000, lambda: chaine.config(text='Vous avez choisi: Ciseau.\nLe BOT a choisi: Ciseau.\nEgalité.\n'))
         elif BOT == 2 :
@@ -126,10 +132,7 @@ def choix(count) :
 
 
     
-try:
-    arduino = serial.Serial("COM3", timeout=1)
-except:
-    print("Please check the port")
+
 pointJ,pointB=0,0
 fenetre = tk.Tk()
 texte1 = tk.Label(fenetre, text='Bienvenue au Jankenpon SHAND !\n\n\nPour jouer:\n\n1) Sélectionner le bouton GO pour lancer la partie.\n2) Réaliser pierre/feuille/ciseau avec votre gant avant le compte à rebours.\n')

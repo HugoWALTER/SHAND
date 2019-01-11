@@ -20,7 +20,7 @@ void loop()
   val2 = analogRead(analogPin2);
   val3 = analogRead(analogPin3);
   val4 = analogRead(analogPin4);
-  val5 = analogRead(analogPin5);/*
+  val5 = analogRead(analogPin5);/* 
   Serial.print(val5);
   Serial.print("-");
   Serial.print(val4);
@@ -36,10 +36,10 @@ void loop()
   if (val5 <= 4) {
     Serial.print(String(5));
   }
-  if (val4 >= 4) {
+  if (val4 >= 13) {
     Serial.print(String(14));
   }
-  if (val4 <= 2) {
+  if (val4 <= 7) {
     Serial.print(String(4));
   }
   if (val3 >= 16) {
@@ -48,10 +48,10 @@ void loop()
   if (val3 <= 8) {
     Serial.print(String(3));
   }
-  if (val2 >= 7) {
+  if (val2 >= 30) {
     Serial.print(String(12));
   }
-  if (val2 <= 4) {
+  if (val2 <= 24) {
     Serial.print(String(2));
   }
   if (val1 >= 30) {
